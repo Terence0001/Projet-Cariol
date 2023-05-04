@@ -1,8 +1,9 @@
 # Cariol
 
-## Start 
+## Start
+
 Avant de commencer à la racine de backend éxecuter la commande suivant:
-    
+
     py ou python -m venv .venv
 
 dans le fichier .venv/ pyvenv.cfg remplacer le contenue par:
@@ -19,8 +20,8 @@ Ensuite éxécuter la commande:
 
     pip install -r requirements.txt
 
+### Lancer le serveur
 
-### Lancer le serveur 
 avant de lancer le serveur démarer l'environement virtuelle puis:
 
     hug -f server.py
