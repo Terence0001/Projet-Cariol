@@ -62,3 +62,11 @@
 body, html {
   overflow: hidden;
 }
+
+
+select{
+  -webkit-appearance: auto !important;
+  background-color: #928BCB;
+  border-radius: 5px;
+  padding: 3px;
+}

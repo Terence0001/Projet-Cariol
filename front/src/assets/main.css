@@ -20,6 +20,17 @@
   padding: 15px 10px;
 }
 
+#filters-bar{
+  background-color: #635C9C;
+  padding: 15px 10px;
+  border-radius: 5px;
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
 
 .container{
   width: 80%;
