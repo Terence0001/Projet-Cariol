@@ -10,5 +10,5 @@ except:
 class Manufacturer(Base):
     __tablename__ = 'manufacturer'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String)

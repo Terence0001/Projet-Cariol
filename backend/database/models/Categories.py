@@ -10,7 +10,7 @@ except:
 class Categories(Base):
     __tablename__ = 'categories'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     categorie_name = Column(String)
     code = Column(Integer)
     formatedCode = Column(Integer)

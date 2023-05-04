@@ -10,5 +10,5 @@ except:
 class Doors(Base):
     __tablename__ = 'doors'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     NbDoors = Column(Integer)

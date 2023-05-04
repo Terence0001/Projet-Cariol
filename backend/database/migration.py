@@ -17,4 +17,4 @@ from models.Historique import Historique, Base
 
 
 ''' Create all table'''
-# Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)

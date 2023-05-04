@@ -10,5 +10,5 @@ except:
 class DriveWheel(Base):
     __tablename__ = 'drive_wheel'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     type = Column(String)

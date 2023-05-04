@@ -10,5 +10,5 @@ except:
 class Model(Base):
     __tablename__ = 'model'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     ModelName = Column(String)

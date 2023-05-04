@@ -10,6 +10,6 @@ except:
 class Colors(Base):
     __tablename__ = 'colors'
 
-    id = Column(autoincrement=True, primary_key=True)
+    id = Column(Integer, autoincrement=True, primary_key=True)
     colors = Column(String)
     formatedCode = Column(Integer)
