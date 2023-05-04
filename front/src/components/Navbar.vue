@@ -1,5 +1,5 @@
 <template>
     <nav id="navbar">
-        {{  $store.state.appName }}
+        Cariol
     </nav>    
 </template>
