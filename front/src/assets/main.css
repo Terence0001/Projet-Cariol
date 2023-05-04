@@ -1,35 +1,29 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
+#app{
+  height: 100vh;
+  background-color: #181A1B;
+  color: white;
+}
+
+
+#navbar{
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  width: 100%;
+  background-color:  #635C9C;
+  padding: 15px 10px;
+}
+
+
+.container{
+  width: 80%;
   margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+  padding: 20px 0;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
