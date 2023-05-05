@@ -12,4 +12,3 @@ class Categories(Base):
 
     id = Column(Integer, autoincrement=True, primary_key=True)
     categorie = Column(String)
-    code = Column(Integer)

@@ -11,4 +11,4 @@ class Cylinders(Base):
     __tablename__ = 'cylinders'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    NbCylinder = Column(Float)
+    nb_cylinder = Column(Float)

@@ -12,4 +12,4 @@ class EngineVolume(Base):
 
     id = Column(Integer, autoincrement=True, primary_key=True)
     turbo = Column(Boolean)
-    EngineVolume = Column(Float)
+    engine_volume = Column(Float)
