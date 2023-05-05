@@ -68,7 +68,17 @@
                 this.driveWheel = filters.drive_wheels
                 this.engineVolume  = filters.engines_volume
                 this.manufacturers = filters.manufacturers 
-            }   
+            },
+
+            makePredition: async function(){
+                const response = await request('prediction', 'POST', {
+                    test: 'test'
+                }) 
+
+                const json = await response.json()
+
+                console.log(json);
+            }
         }
     })
 </script>
@@ -78,7 +88,6 @@
         <h3>Définiser les caractériques de votre voiture</h3>
 
         <div>
-
             <select v-model="manufacturersSelected" >
                 <option v-for="manufacturer in manufacturers" :key="manufacturer" :value=manufacturer.id>{{ manufacturer.name }}</option>
             </select>
@@ -126,5 +135,9 @@
             </select>
         </div>
 
+        <button @click="makePredition">
+            Prédire le prix
+        </button>
+        
     </section>
 </template>
