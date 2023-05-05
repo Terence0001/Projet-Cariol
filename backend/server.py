@@ -83,7 +83,16 @@ def loadFilters(body):
 # Fuck sa marche pas
 
 
+
 @hug.get('/api/testSerializer')
 def TestSerializer(body):
     query = AirbagsSerializer.all()
     serializer = query.to_dict()
+
+
+import time
+@hug.post('/api/prediction')
+def prediction(body):
+    print(body)
+    time.sleep(1)
+    return 'Le prix de la voiture vaut aujourd\'hui'
