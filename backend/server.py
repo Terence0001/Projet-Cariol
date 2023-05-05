@@ -21,22 +21,63 @@ def loadFilters(body):
         ],
 
         "cylinders":    [
-            {"id": 1, "cylinder": 6.0},
-            {"id": 2, "cylinder": 7.0},
-            {"id": 3, "cylinder": 8.0}
+            {"id": 1, "nb_cylinder": "Nb cylindres"},
+            {"id": 1, "nb_cylinder": 6.0},
+            {"id": 2, "nb_cylinder": 7.0},
+            {"id": 3, "nb_cylinder": 8.0}
 
         ],
-        "airbags":      [1],
-        "doors":        [1, 2, 3, 4, 5],
-        "categories":   ['jeep'],
-        "driveWheel":   ['front'],
-        "gearBoxType":  ['automatic'],
-        "model":        [
-            {"id": 0, "model": 'Modèles'}
+        "airbags":      [
+            {"id": 0, 'nb_airbag': 'Nb airbagues'},
+            {"id": 1, 'nb_airbag': 1},
         ],
-        "manufacturer": ['toyota'],
-        "engineVolume": [1.8],
-        "fuelType":     ["hybrided"],
+
+        "doors":        [
+            {"id": 0, 'nb_door': 'Nb portes'},
+            {"id": 1, 'nb_door': 1},
+            {"id": 2, 'nb_door': 2},
+
+
+        ],
+
+        "categories":   [
+            {"id": 0, 'categorie': 'Categorie'},
+            {"id": 1, 'categorie': 'Jeep'},
+        ],
+        
+        "driveWheel":   [
+            {"id": 0, 'type': 'Drive Wheel'},
+            {"id": 1, 'type': '...'},
+        ],
+        
+        "gearBoxType":  [
+            {"id": 0, 'type': 'Gear Box Type'},
+            {"id": 1, 'type': 'Automatique'},
+        ],
+        
+        "model":        [
+            {"id": 0, "model": 'Modèles'},
+            {"id": 1, "model": 'x9'}
+        
+        ],
+
+        "manufacturer": [
+            {"id": 0, "name": 'Constructeur'},
+            {"id": 1, "name": 'Toyota'}
+
+        ],
+        
+        "engineVolume": [
+            {"id": 0, "engine_volume": 'Volume moteur'},
+            {"id": 1, "engine_volume": 6.0}
+
+
+        ],
+
+        "fuelType": [
+            {"id": 0, "fuel": 'Type de carburant'}
+
+        ],
     }
 
 # Fuck sa marche pas
