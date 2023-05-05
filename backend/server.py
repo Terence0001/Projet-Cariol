@@ -1,8 +1,13 @@
 from hug.middleware import CORSMiddleware
 import hug
+from database.database import session
+from database.models import Airbags
+from database.Serializers import AirbagsSerializer
+
 
 api = hug.API(__name__)
-api.http.add_middleware(CORSMiddleware(api, allow_origins=['*'])) # allow_origins à restreindre pour le déploiement
+# allow_origins à restreindre pour le déploiement
+api.http.add_middleware(CORSMiddleware(api, allow_origins=['*']))
 
 
 @hug.get('/api/load-filters')
@@ -20,3 +25,11 @@ def loadFilters(body):
         "engineVolume": [1.8],
         "fuelType":     ["hybrided"],
     }
+
+# Fuck sa marche pas
+
+
+@hug.get('/api/testSerializer')
+def TestSerializer(body):
+    query = AirbagsSerializer.all()
+    serializer = query.to_dict()
