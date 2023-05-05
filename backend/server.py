@@ -26,7 +26,9 @@ def loadFilters(body):
         "categories":   ['jeep'],
         "driveWheel":   ['front'],
         "gearBoxType":  ['automatic'],
-        "model":        ['prius'],
+        "model":        [
+            {"id": 0, "model": }
+        ],
         "manufacturer": ['toyota'],
         "engineVolume": [1.8],
         "fuelType":     ["hybrided"],
