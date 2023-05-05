@@ -71,12 +71,15 @@
             },
 
             makePredition: async function(){
+                const loader = document.getElementById('loader')
+                loader.style.visibility = 'visible'
                 const response = await request('prediction', 'POST', {
                     test: 'test'
                 }) 
 
                 const json = await response.json()
 
+                loader.style.visibility = 'hidden'
                 console.log(json);
             }
         }
@@ -85,59 +88,65 @@
 
 <template>
     <section id="filters-bar">
-        <h3>Définiser les caractériques de votre voiture</h3>
+        <h2>Définiser les caractériques de votre voiture</h2>
 
-        <div>
-            <select v-model="manufacturersSelected" >
+        <div id="filters-select">
+            <select class="select-filter" v-model="manufacturersSelected" >
                 <option v-for="manufacturer in manufacturers" :key="manufacturer" :value=manufacturer.id>{{ manufacturer.name }}</option>
             </select>
 
-            <select v-model="selectedModel" >
+            <select class="select-filter" v-model="selectedModel" >
                 <option v-for="model in models" :key="model" :value=model.id>{{ model.model }}</option>
             </select>
 
-            <select v-model="selectedColor" >
+            <select class="select-filter" v-model="selectedColor" >
                 <option v-for="color in colors" :key="color" :value=color.id>{{ color.color }}</option>
             </select>
 
-            <select v-model="NbAirbagsSelected" >
+            <select class="select-filter" v-model="NbAirbagsSelected" >
                 <option v-for="airbag in NbAirbags" :key="airbag" :value=airbag.id>{{ airbag.nb_airbag }}</option>
             </select>
 
 
-            <select v-model="cylindersSelected" >
+            <select class="select-filter" v-model="cylindersSelected" >
                 <option v-for="cylinder in cylinders" :key="cylinder" :value=cylinder.id>{{ cylinder.nb_cylinder }}</option>
             </select>
 
 
-            <select v-model="gearBoxSelected" >
+            <select class="select-filter" v-model="gearBoxSelected" >
                 <option v-for="gear in gearBox" :key="gear" :value=gear.id>{{ gear.type }}</option>
             </select>
 
-            <select v-model="NbDoorsSelected" >
+            <select class="select-filter" v-model="NbDoorsSelected" >
                 <option v-for="door in NbDoors" :key="door" :value=door.id>{{ door.nb_door }}</option>
             </select>
 
-            <select v-model="categorieSelected" >
+            <select class="select-filter" v-model="categorieSelected" >
                 <option v-for="categ in categories" :key="categ" :value=categ.id>{{ categ.categorie }}</option>
             </select>
 
-            <select v-model="fueltypeSelected" >
+            <select class="select-filter" v-model="fueltypeSelected" >
                 <option v-for="fuel in fueltype" :key="fuel" :value=fuel.id>{{ fuel.fuel }}</option>
             </select>
 
-            <select v-model="engineVolumeSelected" >
+            <select class="select-filter" v-model="engineVolumeSelected" >
                 <option v-for="engine in engineVolume" :key="engine" :value=engine.id>{{ engine.engine_volume }}</option>
             </select>
 
-            <select v-model="driveWheelSelected" >
+            <select class="select-filter" v-model="driveWheelSelected" >
                 <option v-for="wheel in driveWheel" :key="wheel" :value=wheel.id>{{ wheel.type }}</option>
             </select>
         </div>
 
-        <button @click="makePredition">
-            Prédire le prix
-        </button>
+        <div class="action">
+            <button id="btn-predict" @click="makePredition">
+                Prédire le prix
+            </button>
+
+            <div id="loader"></div>
+
+        </div>
+
         
     </section>
 </template>
