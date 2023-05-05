@@ -21,7 +21,7 @@ def loadFilters(body):
         ],
 
         "cylinders":    [
-            {"id": 1, "nb_cylinder": "Nb cylindres"},
+            {"id": 0, "nb_cylinder": "Nb cylindres"},
             {"id": 1, "nb_cylinder": 6.0},
             {"id": 2, "nb_cylinder": 7.0},
             {"id": 3, "nb_cylinder": 8.0}
@@ -45,36 +45,36 @@ def loadFilters(body):
             {"id": 1, 'categorie': 'Jeep'},
         ],
         
-        "driveWheel":   [
+        "drive_wheels":   [
             {"id": 0, 'type': 'Drive Wheel'},
             {"id": 1, 'type': '...'},
         ],
         
-        "gearBoxType":  [
+        "gears_type":  [
             {"id": 0, 'type': 'Gear Box Type'},
             {"id": 1, 'type': 'Automatique'},
         ],
         
-        "model":        [
+        "models":        [
             {"id": 0, "model": 'Modèles'},
             {"id": 1, "model": 'x9'}
         
         ],
 
-        "manufacturer": [
+        "manufacturers": [
             {"id": 0, "name": 'Constructeur'},
             {"id": 1, "name": 'Toyota'}
 
         ],
         
-        "engineVolume": [
+        "engines_volume": [
             {"id": 0, "engine_volume": 'Volume moteur'},
             {"id": 1, "engine_volume": 6.0}
 
 
         ],
 
-        "fuelType": [
+        "fuels_type": [
             {"id": 0, "fuel": 'Type de carburant'}
 
         ],
