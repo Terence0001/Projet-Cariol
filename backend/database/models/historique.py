@@ -26,3 +26,4 @@ class Historique(Base):
     column = mapped_column(ForeignKey('manufacturer.id'))
     column = mapped_column(ForeignKey('model.id'))
     column = mapped_column(ForeignKey('historique.id'))
+    column = mapped_column(ForeignKey('fuel_type.id'))

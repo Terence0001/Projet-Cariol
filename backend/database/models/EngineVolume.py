@@ -1,5 +1,5 @@
 from sqlalchemy.orm import mapped_column, relationship
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Float
+from sqlalchemy import Column, Integer, Boolean, Float
 
 try:
     from database import Base
