@@ -11,4 +11,4 @@ class DriveWheel(Base):
     __tablename__ = 'drive_wheel'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    type = Column(String)
+    dw_type = Column(String)
