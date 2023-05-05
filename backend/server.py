@@ -32,7 +32,7 @@ def loadFilters(body):
         "driveWheel":   ['front'],
         "gearBoxType":  ['automatic'],
         "model":        [
-            {"id": 0, "model": }
+            {"id": 0, "model": 'Modèles'}
         ],
         "manufacturer": ['toyota'],
         "engineVolume": [1.8],
