@@ -11,4 +11,4 @@ class Model(Base):
     __tablename__ = 'model'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    ModelName = Column(String)
+    model = Column(String)

@@ -11,4 +11,4 @@ class Doors(Base):
     __tablename__ = 'doors'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    NbDoors = Column(Integer)
+    NbDoor = Column(Integer)

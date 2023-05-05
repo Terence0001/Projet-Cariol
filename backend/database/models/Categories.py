@@ -11,6 +11,5 @@ class Categories(Base):
     __tablename__ = 'categories'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    categorie_name = Column(String)
+    categorie = Column(String)
     code = Column(Integer)
-    formatedCode = Column(Integer)

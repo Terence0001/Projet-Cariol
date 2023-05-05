@@ -10,4 +10,4 @@ except:
 class Airbags(Base):
     __tablename__ = 'airbags'
     id = Column(Integer, primary_key=True)
-    NbAirbags = Column(Integer)
+    NbAirbag = Column(Integer)
