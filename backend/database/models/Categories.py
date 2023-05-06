@@ -9,6 +9,5 @@ except:
 
 class Categories(Base):
     __tablename__ = 'categories'
-
     id = Column(Integer, autoincrement=True, primary_key=True)
-    categorie = Column(String)
+    category_name = Column(String)

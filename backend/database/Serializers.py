@@ -1,61 +1,94 @@
-from sqlalchemy_serializer import SerializerMixin
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Float, Boolean
-from database.models import Airbags
+from datetime import date
+from pprint import pprint
+from database.models.Airbags import Airbags
+from marshmallow import Schema, fields
 
 
-class AirbagsSerializer(Airbags, SerializerMixin, type):
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    NbAirbags = Column(Integer)
+class AirbagsObject:
+    def __init__(self, id, nb_airbag):
+        self.id = id
+        self.nb_airbag = nb_airbag
 
 
-class CategoriesSerializer(SerializerMixin):
-    __tablename__ = 'categories'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    categorie_name = Column(String)
-    code = Column(Integer)
-    formatedCode = Column(Integer)
+class AirbagsSchema(Schema):
+    id = fields.Integer()
+    nb_airbag = fields.Integer()
 
 
-class ColorsSerializer(SerializerMixin):
-    __tablename__ = 'colors'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    colors = Column(String)
-    formatedCode = Column(Integer)
+# class AirbagsSchema(Schema):
+#     id = fields.Int()
+#     nb_airbag = fields.Int()
+
+#     class Meta:
+#         ordered = True
 
 
-class CylindersSerializer(SerializerMixin):
-    __tablename__ = 'cylinders'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    NbCylinders = Column(Float)
+# class AirbagsSerializer:
+#     @staticmethod
+#     def serialize(airbags):
+#         schema = AirbagsSchema()
+#         return schema.dump(airbags)
 
 
-class DoorsSerializer(SerializerMixin):
-    __tablename__ = 'doors'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    NbDoors = Column(Integer)
+# airbags = Airbags(id=1, nb_airbag=16)
+# serializer = AirbagsSerializer()
+# result = serializer.serialize(airbags)
+# print('______________________________________________________')
+# print(result)
+# print('______________________________________________________')
 
 
-class DriveWheelSerializer(SerializerMixin):
-    __tablename__ = 'drive_wheel'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    type = Column(String)
+class CategoriesSerializer(Schema):
+    id = fields.Int()
+    category_name = fields.Str()
 
 
-class EngineVolumeSerializer(SerializerMixin):
-    __tablename__ = 'engine_volume'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    turbo = Column(Boolean)
-    EngineVolume = Column(Float)
+class ColorsSerializer(Schema):
+    id = fields.Int()
+    color = fields.Str(unique=True)
 
 
-class GearBoxTypeSerializer(SerializerMixin):
-    __tablename__ = 'gear_box_type'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    type = Column(String)
+class CylinderSerializer(Schema):
+    id = fields.Int()
+    nb_cylinder = fields.Int()
 
 
-class ManufacturerSerializer(SerializerMixin):
-    __tablename__ = 'manufacturer'
-    id = Column(Integer, autoincrement=True, primary_key=True)
-    name = Column(String)
+class DoorsSerializer(Schema):
+    id = fields.Int()
+    nb_door = fields.Int()
+
+
+class DriveWhellSerializer(Schema):
+    id = fields.Int()
+    dw_type = fields.Str()
+
+
+class EngineVolumeSerializer(Schema):
+    id = fields.Int()
+    turbo = fields.Boolean()
+    engine_volume = fields.Float()
+
+
+class fuelTypeSerializer(Schema):
+    id = fields.Int()
+    f_type = fields.Str()
+
+
+class GearBoxTypeSerializer(Schema):
+    id = fields.Int()
+    gb_type = fields.Str()
+
+
+class ManufacturerSerializer(Schema):
+    id = fields.Int()
+    name = fields.Str()
+
+
+class ModelSerializer(Schema):
+    id = fields.Int()
+    model_name = fields.Str()
+
+
+class WheelPositionSerializer(Schema):
+    id = fields.Int()
+    wheel_pos = fields.Boolean()

@@ -8,7 +8,7 @@ except:
 
 
 class Model(Base):
-    __tablename__ = 'model'
+    __tablename__ = 'models'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    model = Column(String)
+    model_name = Column(String)

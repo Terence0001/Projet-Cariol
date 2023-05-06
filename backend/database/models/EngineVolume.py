@@ -9,7 +9,6 @@ except:
 
 class EngineVolume(Base):
     __tablename__ = 'engine_volume'
-
     id = Column(Integer, autoincrement=True, primary_key=True)
     turbo = Column(Boolean)
     engine_volume = Column(Float)

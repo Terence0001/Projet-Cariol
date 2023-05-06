@@ -11,4 +11,4 @@ class GearBoxType(Base):
     __tablename__ = 'gear_box_type'
 
     id = Column(Integer, autoincrement=True, primary_key=True)
-    type = Column(String)
+    gb_type = Column(String)

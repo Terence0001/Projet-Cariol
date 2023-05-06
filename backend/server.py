@@ -1,8 +1,9 @@
+from marshmallow import Schema, fields
+import time
 from hug.middleware import CORSMiddleware
 import hug
 from database.database import session
-from database.models import Airbags
-from database.Serializers import AirbagsSerializer
+from database.Serializers import AirbagsObject, AirbagsSchema
 
 
 api = hug.API(__name__)
@@ -13,7 +14,7 @@ api.http.add_middleware(CORSMiddleware(api, allow_origins=['*']))
 @hug.get('/api/load-filters')
 def loadFilters(body):
     return {
-        "colors":[
+        "colors": [
             {"id": 0, "color": 'Couleur'},
             {"id": 1, "color": 'rouge'},
             {"id": 2, "color": 'bleu'},
@@ -44,21 +45,21 @@ def loadFilters(body):
             {"id": 0, 'categorie': 'Categorie'},
             {"id": 1, 'categorie': 'Jeep'},
         ],
-        
+
         "drive_wheels":   [
             {"id": 0, 'type': 'Drive Wheel'},
             {"id": 1, 'type': '...'},
         ],
-        
+
         "gears_type":  [
             {"id": 0, 'type': 'Gear Box Type'},
             {"id": 1, 'type': 'Automatique'},
         ],
-        
+
         "models":        [
             {"id": 0, "model": 'Modèles'},
             {"id": 1, "model": 'x9'}
-        
+
         ],
 
         "manufacturers": [
@@ -66,7 +67,7 @@ def loadFilters(body):
             {"id": 1, "name": 'Toyota'}
 
         ],
-        
+
         "engines_volume": [
             {"id": 0, "engine_volume": 'Volume moteur'},
             {"id": 1, "engine_volume": 6.0}
@@ -80,17 +81,24 @@ def loadFilters(body):
         ],
     }
 
-# Fuck sa marche pas
+
+@hug.get('/api/airbags')
+def get_my_object():
+    my_object = AirbagsObject(1, 2)
+    my_schema = AirbagsSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
 
 
+# @hug.get('/api/testSerializer')
+# def TestSerializer(body):
+#     # return 'Hello'
+#     query = session.query(Airbags)
+#     serializer = AirbagsSerializer
+#     result = serializer(query)
+#     return result
 
-@hug.get('/api/testSerializer')
-def TestSerializer(body):
-    query = AirbagsSerializer.all()
-    serializer = query.to_dict()
 
-
-import time
 @hug.post('/api/prediction')
 def prediction(body):
     print(body)

@@ -1,5 +1,5 @@
 from sqlalchemy.orm import mapped_column, relationship
-from sqlalchemy import Column, Integer, Float
+from sqlalchemy import Column, Integer, Boolean
 
 try:
     from database import Base
@@ -7,7 +7,7 @@ except:
     from ..database import Base
 
 
-class Cylinders(Base):
-    __tablename__ = 'cylinders'
+class WheelPosition(Base):
+    __tablename__ = 'wheel'
     id = Column(Integer, autoincrement=True, primary_key=True)
-    nb_cylinder = Column(Float)
+    wheel_pos = Column(Boolean)

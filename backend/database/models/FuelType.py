@@ -10,4 +10,4 @@ except:
 class FuelType(Base):
     __tablename__ = 'fuel_type'
     id = Column(Integer, autoincrement=True, primary_key=True)
-    fuel = Column(String)
+    f_type = Column(String)
