@@ -12,6 +12,6 @@ except:
 engine = create_engine('postgresql://' + getConfig('user') + ':' + getConfig(
     'password') + '@localhost/' + getConfig('database') + '', echo=True)
 session = sessionmaker(bind=engine)
-session = session()
+
 
 Base = declarative_base()
