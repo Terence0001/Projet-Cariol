@@ -3,9 +3,10 @@ import time
 from hug.middleware import CORSMiddleware
 import hug
 from database.database import session
-from database.Serializers import AirbagsObject, AirbagsSchema
-
-
+from database.Serializers import AirbagsObject, AirbagsSchema, CategoriesObject, CategoriesSchema, ColorsObject, ColorsSchema
+from database.Serializers import CylindersObject, CylindersSchema, DoorsObject, DoorsSchema, DriveWheelObject, DriveWheelSchema
+from database.Serializers import EngineVolumeObject, EngineVolumeSchema, FuelTypeObject, FuelTypeSchema, ManufacturerObject, ManufacturerSchema
+from database.Serializers import WheelPositionObject, WheelPositionSchema, GearBoxTypeObject, GearBoxTypeSchema, HistoriqueObject, HistoriqueSchema
 api = hug.API(__name__)
 # allow_origins à restreindre pour le déploiement
 api.http.add_middleware(CORSMiddleware(api, allow_origins=['*']))
@@ -83,12 +84,107 @@ def loadFilters(body):
 
 
 @hug.get('/api/airbags')
-def get_my_object():
-    my_object = AirbagsObject(1, 2)
+def get_airbags():
+    my_object = AirbagsObject()
     my_schema = AirbagsSchema()
     serialized_obj = my_schema.dump(my_object)
     return serialized_obj
 
+
+@hug.get('/api/categories')
+def get_categories():
+    my_object = CategoriesObject()
+    my_schema = CategoriesSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/colors')
+def get_colors():
+    my_object = ColorsObject()
+    my_schema = ColorsSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/cylinders')
+def get_cylinders():
+    my_object = CylindersObject()
+    my_schema = CylindersSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/doors')
+def get_doors():
+    my_object = DoorsObject()
+    my_schema = DoorsSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/driveWheel')
+def get_drive_wheel():
+    my_object = DriveWheelObject()
+    my_schema = DriveWheelSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/EngineVolume')
+def get_engine_volume():
+    my_object = EngineVolumeObject()
+    my_schema = EngineVolumeSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/FuelType')
+def get_fuel_type():
+    my_object = FuelTypeObject()
+    my_schema = FuelTypeSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/model')
+def get_model():
+    my_object = FuelTypeObject()
+    my_schema = FuelTypeSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/manufacturer')
+def get_manufacturer():
+    my_object = ManufacturerObject()
+    my_schema = ManufacturerSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/wheelPosition')
+def get_wheel_position():
+    my_object = WheelPositionObject()
+    my_schema = WheelPositionSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/gearBoxType')
+def get_gear_box_type():
+    my_object = GearBoxTypeObject()
+    my_schema = GearBoxTypeSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
+
+
+@hug.get('/api/historique')
+def get_historique():
+    my_object = HistoriqueObject()
+    my_schema = HistoriqueSchema()
+    serialized_obj = my_schema.dump(my_object)
+    return serialized_obj
 
 # @hug.get('/api/testSerializer')
 # def TestSerializer(body):
