@@ -14,7 +14,7 @@ from models.GearBoxType import GearBoxType, Base
 from models.Manufacturer import Manufacturer, Base
 from models.Model import Model, Base
 from models.Historique import Historique, Base
-
+from models.FuelType import FuelType, Base
 
 ''' Create all table'''
 Base.metadata.create_all(engine)
