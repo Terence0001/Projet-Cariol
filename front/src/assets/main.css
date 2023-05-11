@@ -1,13 +1,12 @@
 @import './base.css';
 
-#app{
+#app {
   height: 100vh;
-  background-color: #181A1B;
+  background-color: #181a1b;
   color: white;
 }
 
-
-#navbar{
+#navbar {
   display: flex;
   justify-content: center;
   text-transform: capitalize;
@@ -16,12 +15,12 @@
   font-weight: 500;
   letter-spacing: 2px;
   width: 100%;
-  background-color:  #635C9C;
+  background-color: #635c9c;
   padding: 15px 10px;
 }
 
-#filters-bar{
-  background-color: #635C9C;
+#filters-bar {
+  background-color: #635c9c;
   padding: 15px 10px;
   border-radius: 5px;
 
@@ -31,38 +30,37 @@
     gap: 15px;
   }
 
-  > .action{
+  > .action {
     display: flex;
     align-items: center;
 
-    > #btn-predict{
+    > #btn-predict {
       background-color: red;
       padding: 5px 20px;
       width: 90%;
       margin: 0 auto;
       border-radius: 6px;
-      background-color: #928BCB;
+      background-color: #928bcb;
       transition-duration: 500ms;
     }
-    > #btn-predict:hover{
+    > #btn-predict:hover {
       background-color: #8179b8;
     }
 
-    > #loader{
+    > #loader {
       visibility: hidden;
     }
   }
 }
 
-
-#filters-select{
+#filters-select {
   display: flex;
   justify-content: center;
   margin: 15px 0;
 
-  > select.select-filter{
+  > select.select-filter {
     -webkit-appearance: auto !important;
-    background-color: #928BCB;
+    background-color: #928bcb;
     border-radius: 5px;
     color: white;
     padding: 5px 20px;
@@ -70,6 +68,7 @@
 }
 
 #loader {
+  visibility: hidden;
   border: 2px solid #f3f3f3; /* Light grey */
   border-top: 2px solid #3498db; /* Blue */
   border-radius: 50%;
@@ -79,6 +78,14 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.visible {
+  visibility: visible !important;
 }
