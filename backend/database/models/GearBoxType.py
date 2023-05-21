@@ -1,4 +1,3 @@
-from sqlalchemy.orm import mapped_column, relationship
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy_serializer import SerializerMixin
 
