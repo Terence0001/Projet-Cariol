@@ -8,7 +8,17 @@ import pickle
 import numpy as np
 import pandas as pd
 import joblib
-
+#Dépendences à installer
+# pip install azureml-automl-runtime==1.50.0
+#pip install inference-schema
+#pip install azureml-interpret == 1.50.0
+#pip install numpy == 1.22.3
+#pip install pandas == 1.1.5
+#pip install scikit-learn == 0.22.1
+#pip install py-xgboost == 1.3.3
+#pip install fbprophet == 0.7.1
+#pip install holidays == 0.10.3
+#pip install psutil == 5.9.4
 import azureml.automl.core
 from azureml.automl.core.shared import logging_utilities, log_server
 from azureml.telemetry import INSTRUMENTATION_KEY
