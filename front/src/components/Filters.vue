@@ -71,16 +71,15 @@
             },
 
             makePredition: async function(){
-                const loader = document.getElementById('loader')
-                loader.style.visibility = 'visible'
-                const response = await request('prediction', 'POST', {
-                    test: 'test'
-                }) 
+                // const loader = document.getElementById('loader')
+                // loader.style.visibility = 'visible'
+                // const response = await request('car/prediction', 'POST', {
+                // }) 
 
-                const json = await response.json()
+                // const json = await response.json()
 
-                loader.style.visibility = 'hidden'
-                console.log(json);
+                // loader.style.visibility = 'hidden'
+                // console.log(json);
             }
         }
     })

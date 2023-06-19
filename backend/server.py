@@ -13,10 +13,10 @@ from database.models.Model import Model
 from database.models.Manufacturer import Manufacturer
 from database.models.EngineVolume import EngineVolume
 from database.models.FuelType import FuelType
-import json
+# import json
 import logging
 import os
-import pickle
+# import pickle
 import numpy as np
 import pandas as pd
 import joblib
@@ -111,13 +111,14 @@ def prediction(body):
     return 'Le prix de la voiture vaut aujourd\'hui'
 
 
-@hug.get('/api/car/prediction')
-def prediction_with_local_data(body):
-    data_sample = PandasParameterType(pd.DataFrame({"Manufacturer": pd.Series(["example_value"], dtype="object"), "Model": pd.Series(["example_value"], dtype="object"), "Prod. year": pd.Series(["2000-1-1"], dtype="datetime64[ns]"), "Category": pd.Series(["example_value"], dtype="object"), "Leather interior": pd.Series([False], dtype="bool"), "Fuel type": pd.Series(["example_value"], dtype="object"), "Engine volume": pd.Series([0.0], dtype="float64"), "Mileage": pd.Series([0], dtype="int64"), "Cylinders": pd.Series([0.0], dtype="float64"), "Gear box type": pd.Series(["example_value"], dtype="object"), "Drive wheels": pd.Series(["example_value"], dtype="object"), "Doors": pd.Series([0], dtype="int64"), "Wheel": pd.Series([False], dtype="bool"), "Color": pd.Series(["example_value"], dtype="object"), "Airbags": pd.Series([0], dtype="int64"), "Turbo": pd.Series([False], dtype="bool")}))
+@hug.post('/api/car/prediction')
+def prediction_with_local_data():
+    data_sample = PandasParameterType(pd.DataFrame({"Manufacturer": pd.Series(["CHEVROLET"], dtype="object"), "Model": pd.Series(["Equinox"], dtype="object"), "Prod. year": pd.Series(["2000-1-1"], dtype="datetime64[ns]"), "Category": pd.Series(["Jeep"], dtype="object"), "Leather interior": pd.Series([False], dtype="bool"), "Fuel type": pd.Series(["Petrol"], dtype="object"), "Engine volume": pd.Series([0.0], dtype="float64"), "Mileage": pd.Series(
+        [0], dtype="int64"), "Cylinders": pd.Series([0.0], dtype="float64"), "Gear box type": pd.Series(["example_value"], dtype="object"), "Drive wheels": pd.Series(["example_value"], dtype="object"), "Doors": pd.Series([0], dtype="int64"), "Wheel": pd.Series([False], dtype="bool"), "Color": pd.Series(["example_value"], dtype="object"), "Airbags": pd.Series([0], dtype="int64"), "Turbo": pd.Series([False], dtype="bool")}))
     input_sample = StandardPythonParameterType({'data': data_sample})
 
     result_sample = NumpyParameterType(np.array([0]))
-    output_sample = StandardPythonParameterType({'Results':result_sample})
+    output_sample = StandardPythonParameterType({'Results': result_sample})
     sample_global_parameters = StandardPythonParameterType(1.0)
 
     try:
@@ -127,7 +128,6 @@ def prediction_with_local_data(body):
     except:
         pass
 
-
     def init():
         global model
         # This name is model.id of model that we want to deploy deserialize the model file back
@@ -135,7 +135,8 @@ def prediction_with_local_data(body):
         model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model.pkl')
         path = os.path.normpath(model_path)
         path_split = path.split(os.sep)
-        log_server.update_custom_dimensions({'model_name': path_split[-3], 'model_version': path_split[-2]})
+        log_server.update_custom_dimensions(
+            {'model_name': path_split[-3], 'model_version': path_split[-2]})
         try:
             logger.info("Loading model from path.")
             model = joblib.load(model_path)
@@ -150,4 +151,4 @@ def prediction_with_local_data(body):
     def run(Inputs, GlobalParameters=1.0):
         data = Inputs['data']
         result = model.predict(data)
-        return {'Results':result.tolist()}
+        return {'Results': result.tolist()}
