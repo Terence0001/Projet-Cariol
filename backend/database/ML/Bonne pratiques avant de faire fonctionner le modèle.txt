@@ -1,0 +1,16 @@
+1. S'assurer d'utiliser Anaconda à travers le PATH :
+• Vérifier que l'utilisation d'Anaconda est configurée pour se faire à travers le PATH plutôt qu'en utilisant la dernière version de Python par défaut.
+
+2. Vérifier l'accessibilité d'Anaconda à travers le PATH :
+• Vérifier si Anaconda est correctement accessible à travers le PATH de votre système. Cela garantit que les commandes liées à Anaconda peuvent être exécutées depuis n'importe quel répertoire dans l'invite de commandes ou le terminal.
+
+3. Rétrograder la version d'Anaconda si nécessaire :
+• Si vous constatez que la dernière version d'Anaconda ne fonctionne pas correctement ou n'est pas accessible via le PATH, envisagez de rétrograder vers une version antérieure d'Anaconda.
+
+4. Ajouter Anaconda au PATH lors de l'installation :
+• Lorsque vous installez Anaconda, assurez-vous de cocher l'option qui ajoute automatiquement Anaconda au PATH de votre système. Cela permettra d'accéder facilement aux commandes d'Anaconda depuis n'importe quel emplacement.
+
+Attention !
+Ne pas oublier de faire ces installations avant de l'ancer votre code :
+pip install azureml-core
+pip install azureml-automl-core
